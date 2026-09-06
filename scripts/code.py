@@ -23,14 +23,22 @@ def find_bulls(rand_str, gussed_str):
             sub_gussed += gussed_str[i]
             sub_rand+=rand_str[i]
     cows=find_cows(sub_rand, sub_gussed)
+    return bulls
 
 
 
 rand_str=create_quartet()
+print(rand_str)
 gussed_str=input("Enter gusset sequnce : ")
 nok= ["A","G","T","C"]
 if len(gussed_str)!=4 or not all(letter in nok for letter in gussed_str) :
     print("you need to guss only 4 letters and omly noklotidim, try again")
     gussed_str=input("Enter gusset sequnce : ")
 
- bulls=find_bulls(rand_str, gussed_str)  
+bulls=find_bulls(rand_str, gussed_str)  
+attempts=1
+while bulls!=4:
+    gussed_str=input("Enter next gusset sequnce : ")
+    bulls=find_bulls(rand_str, gussed_str)  
+    attempts+=1
+print("You guessed after", attempts,"attempts")
