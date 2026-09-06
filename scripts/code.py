@@ -25,14 +25,13 @@ def find_bulls(rand_str, gussed_str):
             sub_rand+=rand_str[i]
     cows=find_cows(sub_rand, sub_gussed)
     print ("Bulls= ",bulls)
-    file_a.write("Bulls= "+ int(bulls) +"\n" )
+    file_a.write("Bulls= "+ str(bulls) +"\n" )
     print("Cows=",cows)
-    file_a.write("Cows= "+int(cows)+"\n" )
+    file_a.write("Cows= "+str(cows)+"\n" )
     return bulls
 
 file_a=open('results/chat', 'w')
 rand_str=create_quartet()
-print(rand_str)
 bulls=0
 attempts=0
 nok= ["A","G","T","C"]
