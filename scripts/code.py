@@ -1,10 +1,10 @@
-import random 
+import random  #יצירת המחרוזת הרנדומלית
 def create_quartet():
     nok= ["A","G","T","C"]
     word = ''.join(random.choices(nok, k=4))
     return word
 
-def find_cows(sub_rand, sub_gussed):
+def find_cows(sub_rand, sub_gussed): # ספירת הפספוסים
     cows=0
     lanph=len(sub_gussed)
     for i  in range (lanph):
@@ -12,7 +12,7 @@ def find_cows(sub_rand, sub_gussed):
             cows +=1
     return cows
      
-def find_bulls(rand_str, gussed_str):
+def find_bulls(rand_str, gussed_str): # ספירת הבול פגיע
     file_a=open('results/chat', 'w')
     sub_gussed =""
     sub_rand=""
@@ -30,12 +30,12 @@ def find_bulls(rand_str, gussed_str):
     file_a.write("Cows= "+str(cows)+"\n" )
     return bulls
 
-file_a=open('results/chat', 'w')
+file_a=open('results/chat', 'w') # משתנים הדרושים
 rand_str=create_quartet()
 bulls=0
 attempts=0
 nok= ["A","G","T","C"]
-while bulls!=4:
+while bulls!=4:  # יצירת לולאת הנסיונות
     gussed_str=input("Please try to guess a four DNA combination composed from A,T,C,G : ")
     if len(gussed_str)!=4 or not all(letter in nok for letter in gussed_str) :
         print("you need to guss only 4 letters and omly noklotidim, try again")
